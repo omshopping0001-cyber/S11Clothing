@@ -7,11 +7,9 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { S11Logo } from "@/components/s11-logo";
 import { FILTERS, PRODUCTS, type Product } from "@/data/products";
-import storyImage from "@/assets/s11-story.jpg";
-import blackImage from "@/assets/s11-campaign-black.jpg";
-import whiteImage from "@/assets/s11-campaign-white.jpg";
-import redImage from "@/assets/s11-campaign-red.jpg";
-import sandImage from "@/assets/s11-campaign-sand.jpg";
+import heroImage from "@/assets/collection/s11-hero-3d.png";
+import menImage from "@/assets/collection/s11-men-3d.png";
+import womenImage from "@/assets/collection/s11-women-3d.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -30,7 +28,7 @@ export const Route = createFileRoute("/")({
 });
 
 // Replace this placeholder with your WhatsApp business number, including country code and no + sign.
-const WHATSAPP_NUMBER = "919876543210";
+const WHATSAPP_NUMBER = "917621034826";
 const INSTAGRAM_URL = "https://instagram.com/s11clothing"; // Replace with your real Instagram profile.
 
 type SortMode = "featured" | "low" | "high" | "newest";
@@ -79,6 +77,7 @@ function Storefront() {
           <Button variant="ghost" size="icon" className="h-11 w-11 lg:hidden" aria-label="Open navigation" onClick={() => setMobileOpen(true)}><Menu className="h-6 w-6" /></Button>
         </div>
       </header>
+      <button type="button" onClick={() => scrollTo("shop")} className="relative z-30 flex w-full items-center justify-center gap-2 bg-brand px-4 py-2.5 text-center text-xs font-extrabold uppercase tracking-[0.14em] text-brand-foreground">Any 5 T-shirts for ₹1000 <span className="hidden sm:inline">— mix boys’, girls’ & 3D graphics</span><ArrowRight className="h-4 w-4" /></button>
 
       {mobileOpen && (
         <div className="fixed inset-0 z-50 bg-foreground/40 backdrop-blur-sm lg:hidden" role="presentation" onClick={() => setMobileOpen(false)}>
@@ -97,19 +96,19 @@ function Storefront() {
       <main id="top">
         <section className="hero-grid relative min-h-[calc(100svh-4.5rem)] bg-ink text-ink-foreground lg:min-h-[calc(100svh-5rem)]">
           <div className="relative z-10 flex min-h-[45svh] flex-col justify-end px-5 pb-10 pt-16 sm:px-8 lg:min-h-0 lg:px-12 lg:pb-16 xl:px-20">
-            <p className="eyebrow text-ink-muted animate-rise">S11 / ESSENTIALS 2026</p>
-            <h1 className="mt-5 max-w-4xl font-display text-[clamp(3.2rem,8vw,8.8rem)] uppercase leading-[0.87] animate-rise-delay">Wear your<br /><span className="text-brand">attitude.</span></h1>
-            <p className="mt-7 max-w-md text-sm leading-6 text-ink-muted sm:text-base">Premium everyday essentials designed for your style. Built in India, made to move differently.</p>
+            <p className="eyebrow text-ink-muted animate-rise">S11 / 3D COLLECTION 2026</p>
+            <h1 className="mt-5 max-w-4xl font-display text-[clamp(3.2rem,8vw,8.8rem)] uppercase leading-[0.87] animate-rise-delay">Five tees.<br /><span className="text-brand">₹1000.</span></h1>
+            <p className="mt-7 max-w-md text-sm leading-6 text-ink-muted sm:text-base">Build your own five-piece drop. Fresh boys’, girls’ and original 3D graphic T-shirts—all for one incredible price.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button size="lg" variant="brand" onClick={() => scrollTo("shop")}>Shop collection <ArrowDown /></Button>
               <Button size="lg" variant="inverted" onClick={() => scrollTo("best-sellers")}>Explore best sellers</Button>
             </div>
           </div>
           <div className="hero-image relative min-h-[52svh] overflow-hidden lg:min-h-0">
-            <img src={blackImage} alt="Model wearing the S11 Essential Black oversized T-shirt" width={1024} height={1280} fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-center animate-reveal" />
+            <img src={heroImage} alt="Models wearing S11 original 3D graphic T-shirts" width={1024} height={1280} fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-center animate-reveal" />
             <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-ink/70 to-transparent p-5 pt-20 text-ink-foreground lg:p-8">
-              <div><p className="text-xs font-bold uppercase tracking-[0.16em]">Essential Black Tee</p><p className="mt-1 text-xs text-ink-muted">Heavyweight · 240 GSM</p></div>
-              <span className="font-display text-2xl">₹599</span>
+              <div><p className="text-xs font-bold uppercase tracking-[0.16em]">Original 3D Graphic Tees</p><p className="mt-1 text-xs text-ink-muted">Any 5 · ₹1000</p></div>
+              <span className="font-display text-2xl">₹200</span>
             </div>
           </div>
           <div className="pointer-events-none absolute right-4 top-4 z-20 hidden vertical-label text-[0.6rem] font-bold uppercase tracking-[0.22em] text-ink-muted lg:block">New Delhi / 28.6139° N</div>
@@ -125,7 +124,7 @@ function Storefront() {
 
         <section id="shop" className="scroll-mt-20 px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
           <div className="mx-auto max-w-[1480px]">
-            <SectionHeading index="01" eyebrow="The S11 collection" title="EVERYDAY, ELEVATED." description="Purposeful fits. Honest fabrics. Tees that hold their shape and your attention." />
+            <SectionHeading index="01" eyebrow="10 original designs" title="PICK ANY 5 FOR ₹1000." description="Five boys’ tees and five girls’ tees—every product has its own original 3D design and photo." />
             <div className="mt-10 border-y border-border py-4">
               <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                 <div className="scrollbar-none flex gap-2 overflow-x-auto pb-1" role="group" aria-label="Filter products">
@@ -151,9 +150,9 @@ function Storefront() {
             <SectionHeading dark index="02" eyebrow="S11 most wanted" title="THE ONES EVERYONE’S WEARING" description="Four fits that became instant uniforms." />
             <div className="mt-12 grid gap-4 lg:grid-cols-[1.5fr_1fr]">
               <button type="button" className="group relative min-h-[620px] cursor-pointer overflow-hidden text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand" onClick={() => setSelectedProduct(PRODUCTS[2] ?? null)}>
-                <img src={redImage} alt="Urban Red Graphic Tee campaign" width={1024} height={1280} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                <img src={womenImage} alt="S11 women's 3D T-shirt collection" width={1024} height={1280} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-6 sm:p-9"><div><p className="eyebrow text-ink-muted">Drop 11 / Bestseller</p><h3 className="mt-3 font-display text-3xl uppercase sm:text-5xl">Urban Red<br />Graphic Tee</h3></div><span className="grid h-12 w-12 place-items-center bg-brand text-brand-foreground"><ArrowRight /></span></div>
+                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-6 sm:p-9"><div><p className="eyebrow text-ink-muted">Girls’ / Bestseller</p><h3 className="mt-3 font-display text-3xl uppercase sm:text-5xl">3D PRINT<br />GIRLS’ TEES</h3></div><span className="grid h-12 w-12 place-items-center bg-brand text-brand-foreground"><ArrowRight /></span></div>
               </button>
               <div className="grid grid-cols-2 gap-3 lg:grid-cols-1">
                 {PRODUCTS.filter((product) => product.bestseller && product.id !== 3).slice(0, 2).map((product) => <ProductCard key={product.id} product={product} dark compact onOpen={setSelectedProduct} />)}
@@ -167,7 +166,7 @@ function Storefront() {
           <div className="order-2 flex items-center bg-surface px-5 py-16 sm:px-10 lg:order-1 lg:px-[8vw] lg:py-24">
             <div className="max-w-xl"><p className="eyebrow text-brand">Our point of view</p><h2 className="mt-5 font-display text-[clamp(2.5rem,5vw,5rem)] uppercase leading-[0.92]">Built for everyday.<br />Designed to stand out.</h2><p className="mt-7 max-w-lg text-base leading-7 text-muted-foreground">S11 Clothing creates comfortable, modern and versatile T-shirts for people who want everyday clothing with personality. No noise—just confident fits, tactile fabrics and details that last.</p><div className="mt-10 grid grid-cols-3 border-y border-border py-6"><Stat number="240" label="GSM cotton" /><Stat number="05" label="Core sizes" /><Stat number="01" label="Bold identity" /></div></div>
           </div>
-          <div className="order-1 min-h-[420px] lg:order-2 lg:min-h-[720px]"><img src={storyImage} alt="Friends wearing S11 Clothing streetwear in an urban courtyard" width={1200} height={800} loading="lazy" className="h-full w-full object-cover" /></div>
+          <div className="order-1 min-h-[420px] lg:order-2 lg:min-h-[720px]"><img src={menImage} alt="S11 3D T-shirt collection in a modern gallery" width={1024} height={1280} loading="lazy" className="h-full w-full object-cover" /></div>
         </section>
 
         <section className="px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
@@ -181,7 +180,7 @@ function Storefront() {
         <section className="bg-surface px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
           <div className="mx-auto max-w-[1480px]"><div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"><SectionHeading index="04" eyebrow="Community in motion" title="FOLLOW THE S11 STYLE" /><Button asChild variant="outline"><a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">Follow us <Instagram /></a></Button></div>
             <div className="mt-10 grid grid-cols-2 gap-2 md:grid-cols-4 md:grid-rows-2">
-              {[blackImage, whiteImage, redImage, sandImage, storyImage, blackImage].map((image, index) => <a key={`${image}-${index}`} href={INSTAGRAM_URL} target="_blank" rel="noreferrer" aria-label={`View S11 style post ${index + 1}`} className={`group relative overflow-hidden ${index === 0 ? "md:col-span-2 md:row-span-2" : ""}`}><img src={image} alt={["Black oversized T-shirt street style", "White oversized tee styling", "Red graphic tee at night", "Beige essential tee look", "S11 community streetwear", "Premium black tee detail"][index]} width={index === 4 ? 1200 : 1024} height={index === 4 ? 800 : 1280} loading="lazy" className={`w-full object-cover transition duration-700 group-hover:scale-105 ${index === 0 ? "aspect-square h-full" : "aspect-square"}`} /><span className="absolute right-3 top-3 grid h-9 w-9 place-items-center bg-background/90 opacity-0 transition-opacity group-hover:opacity-100"><Instagram className="h-4 w-4" /></span></a>)}
+              {PRODUCTS.slice(0, 6).map((product, index) => <a key={product.id} href={INSTAGRAM_URL} target="_blank" rel="noreferrer" aria-label={`View ${product.name}`} className={`group relative overflow-hidden ${index === 0 ? "md:col-span-2 md:row-span-2" : ""}`}><img src={product.image} alt={product.name} width={1024} height={1280} loading="lazy" className={`w-full object-cover transition duration-700 group-hover:scale-105 ${index === 0 ? "aspect-square h-full" : "aspect-square"}`} /><span className="absolute right-3 top-3 grid h-9 w-9 place-items-center bg-background/90 opacity-0 transition-opacity group-hover:opacity-100"><Instagram className="h-4 w-4" /></span></a>)}
             </div>
           </div>
         </section>
@@ -218,10 +217,10 @@ function ProductCard({ product, onOpen, dark = false, compact = false }: { produ
 }
 
 function ProductDialog({ product, onOpenChange, onSizeGuide }: { product: Product | null; onOpenChange: (open: boolean) => void; onSizeGuide: () => void }) {
-  const [size, setSize] = useState(""); const [colour, setColour] = useState(""); const [quantity, setQuantity] = useState(1); const [attempted, setAttempted] = useState(false);
-  const reset = () => { setSize(""); setColour(""); setQuantity(1); setAttempted(false); };
-  const order = () => { setAttempted(true); if (!product || !size || !colour) return; const message = `Hi S11 Clothing! I want to order:\n\nProduct: ${product.name}\nPrice: ₹${product.price}\nSize: ${size}\nColour: ${colour}\nQuantity: ${quantity}\n\nPlease confirm availability and order details.`; window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer"); };
-  return <Dialog open={Boolean(product)} onOpenChange={(open) => { if (!open) reset(); onOpenChange(open); }}><DialogContent className="max-h-[94svh] w-[calc(100%-1rem)] max-w-5xl overflow-y-auto rounded-none border-0 p-0 sm:rounded-none"><DialogHeader className="sr-only"><DialogTitle>{product?.name ?? "Product details"}</DialogTitle><DialogDescription>Select size, colour and quantity to order on WhatsApp.</DialogDescription></DialogHeader>{product && <div className="grid md:grid-cols-2"><div className="min-h-[360px] bg-product md:min-h-[700px]"><img src={product.image} alt={product.name} width={1024} height={1280} className="h-full w-full object-cover" style={{ objectPosition: product.imagePosition ?? "center" }} /></div><div className="flex flex-col p-5 sm:p-8 md:p-10"><p className="eyebrow text-brand">{product.label}</p><h2 className="mt-4 pr-10 font-display text-3xl uppercase leading-none sm:text-4xl">{product.name}</h2><div className="mt-4 flex items-center gap-2"><span className="text-xl font-extrabold">₹{product.price}</span>{product.originalPrice && <span className="text-sm text-muted-foreground line-through">₹{product.originalPrice}</span>}</div><p className="mt-5 text-sm leading-6 text-muted-foreground">{product.description}</p><p className="mt-3 text-xs font-semibold uppercase tracking-[0.08em]"><span className="text-muted-foreground">Fabric / </span>{product.fabric}</p><div className="mt-8"><div className="flex items-center justify-between"><p className="option-label">Select size {size && <span>— {size}</span>}</p><Button variant="link" size="sm" className="h-auto p-0" onClick={onSizeGuide}><Ruler /> Size guide</Button></div><div className="mt-3 grid grid-cols-5 gap-2">{product.sizes.map((item) => <Button key={item} variant={size === item ? "default" : "outline"} className="px-1" onClick={() => setSize(item)} aria-pressed={size === item}>{item}</Button>)}</div>{attempted && !size && <p className="mt-2 text-xs font-semibold text-brand">Please select a size.</p>}</div><div className="mt-7"><p className="option-label">Select colour {colour && <span>— {colour}</span>}</p><div className="mt-3 flex flex-wrap gap-2">{product.colours.map((item) => <Button key={item} variant={colour === item ? "default" : "outline"} onClick={() => setColour(item)} aria-pressed={colour === item}><span className={`colour-dot colour-${item.toLowerCase()}`} />{colour === item && <Check />}{item}</Button>)}</div>{attempted && !colour && <p className="mt-2 text-xs font-semibold text-brand">Please select a colour.</p>}</div><div className="mt-7"><p className="option-label">Quantity — {quantity}</p><div className="mt-3 inline-grid grid-cols-3 border border-border"><Button variant="ghost" size="icon" aria-label="Decrease quantity" onClick={() => setQuantity((value) => Math.max(1, value - 1))} disabled={quantity === 1}><Minus /></Button><span className="grid min-w-12 place-items-center border-x border-border text-sm font-bold">{quantity}</span><Button variant="ghost" size="icon" aria-label="Increase quantity" onClick={() => setQuantity((value) => Math.min(10, value + 1))}><Plus /></Button></div></div><div className="mt-8 border-t border-border pt-6 md:mt-auto"><div className="mb-4 flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold"><span className={size ? "text-foreground" : "text-muted-foreground"}>Size: {size || "Not selected"}</span><span className={colour ? "text-foreground" : "text-muted-foreground"}>Colour: {colour || "Not selected"}</span><span>Qty: {quantity}</span></div><Button variant="brand" size="lg" className="w-full" onClick={order}>Order on WhatsApp <ArrowRight /></Button><p className="mt-3 text-center text-[0.65rem] leading-5 text-muted-foreground">No payment is taken here. We’ll confirm availability and order details on WhatsApp.</p></div></div></div>}</DialogContent></Dialog>;
+  const [size, setSize] = useState(""); const [colour, setColour] = useState(""); const [quantity, setQuantity] = useState(5); const [attempted, setAttempted] = useState(false);
+  const reset = () => { setSize(""); setColour(""); setQuantity(5); setAttempted(false); };
+  const order = () => { setAttempted(true); if (!product || !size || !colour) return; const message = `Hi S11 Clothing! I want to order the 5 tees for ₹1000 offer:\n\nProduct: ${product.name}\nSize: ${size}\nColour: ${colour}\nQuantity: ${quantity}\nBundle total: ₹${quantity * product.price}\n\nPlease help me complete my mix-and-match bundle and confirm availability.`; window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer"); };
+  return <Dialog open={Boolean(product)} onOpenChange={(open) => { if (!open) reset(); onOpenChange(open); }}><DialogContent className="max-h-[94svh] w-[calc(100%-1rem)] max-w-5xl overflow-y-auto rounded-none border-0 p-0 sm:rounded-none"><DialogHeader className="sr-only"><DialogTitle>{product?.name ?? "Product details"}</DialogTitle><DialogDescription>Select size, colour and quantity to order on WhatsApp.</DialogDescription></DialogHeader>{product && <div className="grid md:grid-cols-2"><div className="min-h-[360px] bg-product md:min-h-[700px]"><img src={product.image} alt={product.name} width={1024} height={1280} className="h-full w-full object-cover" style={{ objectPosition: product.imagePosition ?? "center" }} /></div><div className="flex flex-col p-5 sm:p-8 md:p-10"><p className="eyebrow text-brand">{product.label}</p><h2 className="mt-4 pr-10 font-display text-3xl uppercase leading-none sm:text-4xl">{product.name}</h2><div className="mt-4 flex items-center gap-2"><span className="text-xl font-extrabold">₹{product.price} / tee</span>{product.originalPrice && <span className="text-sm text-muted-foreground line-through">₹{product.originalPrice}</span>}</div><p className="mt-4 bg-brand px-3 py-2 text-xs font-extrabold uppercase tracking-[0.08em] text-brand-foreground">Bundle deal: any 5 T-shirts for ₹1000</p><p className="mt-5 text-sm leading-6 text-muted-foreground">{product.description}</p><p className="mt-3 text-xs font-semibold uppercase tracking-[0.08em]"><span className="text-muted-foreground">Fabric / </span>{product.fabric}</p><div className="mt-8"><div className="flex items-center justify-between"><p className="option-label">Select size {size && <span>— {size}</span>}</p><Button variant="link" size="sm" className="h-auto p-0" onClick={onSizeGuide}><Ruler /> Size guide</Button></div><div className="mt-3 grid grid-cols-5 gap-2">{product.sizes.map((item) => <Button key={item} variant={size === item ? "default" : "outline"} className="px-1" onClick={() => setSize(item)} aria-pressed={size === item}>{item}</Button>)}</div>{attempted && !size && <p className="mt-2 text-xs font-semibold text-brand">Please select a size.</p>}</div><div className="mt-7"><p className="option-label">Select colour {colour && <span>— {colour}</span>}</p><div className="mt-3 flex flex-wrap gap-2">{product.colours.map((item) => <Button key={item} variant={colour === item ? "default" : "outline"} onClick={() => setColour(item)} aria-pressed={colour === item}><span className={`colour-dot colour-${item.toLowerCase()}`} />{colour === item && <Check />}{item}</Button>)}</div>{attempted && !colour && <p className="mt-2 text-xs font-semibold text-brand">Please select a colour.</p>}</div><div className="mt-7"><p className="option-label">Bundle quantity — {quantity}</p><div className="mt-3 inline-grid grid-cols-3 border border-border"><Button variant="ghost" size="icon" aria-label="Decrease quantity" onClick={() => setQuantity((value) => Math.max(5, value - 1))} disabled={quantity === 5}><Minus /></Button><span className="grid min-w-12 place-items-center border-x border-border text-sm font-bold">{quantity}</span><Button variant="ghost" size="icon" aria-label="Increase quantity" onClick={() => setQuantity((value) => Math.min(20, value + 1))}><Plus /></Button></div></div><div className="mt-8 border-t border-border pt-6 md:mt-auto"><div className="mb-4 flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold"><span className={size ? "text-foreground" : "text-muted-foreground"}>Size: {size || "Not selected"}</span><span className={colour ? "text-foreground" : "text-muted-foreground"}>Colour: {colour || "Not selected"}</span><span>Qty: {quantity}</span><span>Total: ₹{quantity * product.price}</span></div><Button variant="brand" size="lg" className="w-full" onClick={order}>Order bundle on WhatsApp <ArrowRight /></Button><p className="mt-3 text-center text-[0.65rem] leading-5 text-muted-foreground">Choose this tee now and tell us your other choices on WhatsApp—we’ll build your five-piece bundle.</p></div></div></div>}</DialogContent></Dialog>;
 }
 
 function SizeGuide({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {

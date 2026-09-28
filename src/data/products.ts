@@ -1,37 +1,31 @@
-import blackImage from "@/assets/s11-campaign-black.jpg";
-import whiteImage from "@/assets/s11-campaign-white.jpg";
-import redImage from "@/assets/s11-campaign-red.jpg";
-import sandImage from "@/assets/s11-campaign-sand.jpg";
+import boysChromeOrbit from "@/assets/collection/boys-chrome-orbit.png";
+import boysMidnightWave from "@/assets/collection/boys-midnight-wave.png";
+import boysSteelCube from "@/assets/collection/boys-steel-cube.png";
+import boysEclipse from "@/assets/collection/boys-eclipse.png";
+import boysVortex from "@/assets/collection/boys-vortex.png";
+import girlsSilverHeart from "@/assets/collection/girls-silver-heart.png";
+import girlsLilacBubbles from "@/assets/collection/girls-lilac-bubbles.png";
+import girlsBurgundyOrb from "@/assets/collection/girls-burgundy-orb.png";
+import girlsSilverWave from "@/assets/collection/girls-silver-wave.png";
+import girlsPinkButterfly from "@/assets/collection/girls-pink-butterfly.png";
 
-export type ProductCategory = "Oversized" | "Regular Fit" | "Graphic" | "Basic" | "New Arrivals";
+export type ProductCategory = "Boys" | "Girls";
+export type Product = { id: number; name: string; price: number; originalPrice?: number; description: string; category: ProductCategory; label: string; fabric: string; sizes: string[]; colours: string[]; image: string; imagePosition?: string; featured: boolean; bestseller: boolean; newArrival: boolean };
 
-export type Product = {
-  id: number;
-  name: string;
-  price: number;
-  originalPrice?: number;
-  description: string;
-  category: ProductCategory;
-  label: string;
-  fabric: string;
-  sizes: string[];
-  colours: string[];
-  image: string;
-  imagePosition?: string;
-  featured: boolean;
-  bestseller: boolean;
-  newArrival: boolean;
-};
+const standard = { price: 200, originalPrice: 349, fabric: "100% combed cotton · 220 GSM", sizes: ["S", "M", "L", "XL", "XXL"], featured: true, newArrival: true };
+const girlsSizing = { price: 200, originalPrice: 349, fabric: "Cotton stretch jersey · 200 GSM", sizes: ["XS", "S", "M", "L", "XL"], featured: true, newArrival: true };
 
 export const PRODUCTS: Product[] = [
-  { id: 1, name: "Essential Black Tee", price: 599, description: "A heavyweight everyday tee with a relaxed shoulder and clean, structured fall.", category: "Basic", label: "Core / 240 GSM", fabric: "100% combed cotton · 240 GSM", sizes: ["S", "M", "L", "XL", "XXL"], colours: ["Black", "Charcoal"], image: blackImage, featured: true, bestseller: true, newArrival: false },
-  { id: 2, name: "Classic White Oversized Tee", price: 699, description: "A crisp oversized staple cut with roomy sleeves and a premium ribbed neckline.", category: "Oversized", label: "Oversized / 240 GSM", fabric: "100% compact cotton · 240 GSM", sizes: ["S", "M", "L", "XL", "XXL"], colours: ["White", "Ivory"], image: whiteImage, featured: true, bestseller: true, newArrival: true },
-  { id: 3, name: "Urban Red Graphic Tee", price: 799, originalPrice: 899, description: "A washed vermilion statement tee finished with an expressive tonal screen print.", category: "Graphic", label: "Graphic / Drop 11", fabric: "Bio-washed cotton · 220 GSM", sizes: ["S", "M", "L", "XL"], colours: ["Red", "Black"], image: redImage, featured: true, bestseller: true, newArrival: true },
-  { id: 4, name: "Sand Beige Essential Tee", price: 649, description: "Soft neutral tones meet a relaxed silhouette made for effortless everyday layering.", category: "Regular Fit", label: "Essential / 220 GSM", fabric: "100% combed cotton · 220 GSM", sizes: ["S", "M", "L", "XL", "XXL"], colours: ["Beige", "Ivory"], image: sandImage, featured: true, bestseller: false, newArrival: false },
-  { id: 5, name: "Midnight Street Tee", price: 749, description: "Deep charcoal, dropped shoulders and a garment-washed finish for a lived-in feel.", category: "Oversized", label: "Oversized / Washed", fabric: "Garment-dyed cotton · 240 GSM", sizes: ["M", "L", "XL", "XXL"], colours: ["Charcoal", "Black"], image: blackImage, imagePosition: "65% center", featured: false, bestseller: true, newArrival: false },
-  { id: 6, name: "Minimal Logo Tee", price: 599, description: "Clean regular-fit construction with a subtle S11 signature at the chest.", category: "Regular Fit", label: "Signature / Regular", fabric: "100% cotton jersey · 200 GSM", sizes: ["S", "M", "L", "XL", "XXL"], colours: ["White", "Black", "Red"], image: whiteImage, imagePosition: "45% center", featured: false, bestseller: false, newArrival: false },
-  { id: 7, name: "Vintage Wash Tee", price: 799, description: "A vintage-inspired washed tee with subtle tonal variation and a boxy modern shape.", category: "New Arrivals", label: "New / Vintage Wash", fabric: "Acid-washed cotton · 230 GSM", sizes: ["S", "M", "L", "XL"], colours: ["Charcoal", "Red"], image: redImage, imagePosition: "58% center", featured: false, bestseller: false, newArrival: true },
-  { id: 8, name: "Premium Oversized Black Tee", price: 799, description: "Our most substantial black tee, engineered with a wide body and perfect drape.", category: "Oversized", label: "Premium / 260 GSM", fabric: "100% compact cotton · 260 GSM", sizes: ["S", "M", "L", "XL", "XXL"], colours: ["Black", "Beige"], image: blackImage, imagePosition: "35% center", featured: true, bestseller: true, newArrival: true },
+  { ...standard, id: 1, name: "Chrome Orbit Oversized Tee", description: "Black oversized cotton with a futuristic chrome orbit 3D print.", category: "Boys", label: "Boys / 3D Graphic", colours: ["Black", "Charcoal"], image: boysChromeOrbit, bestseller: true },
+  { ...standard, id: 2, name: "Midnight Wave Tee", description: "Deep navy cotton featuring an electric dimensional wave graphic.", category: "Boys", label: "Boys / 3D Graphic", colours: ["Navy", "Black"], image: boysMidnightWave, bestseller: true },
+  { ...standard, id: 3, name: "Steel Cube Tee", description: "Washed steel-grey cotton with a transparent architectural cube design.", category: "Boys", label: "Boys / 3D Graphic", colours: ["Charcoal", "White"], image: boysSteelCube, bestseller: false },
+  { ...standard, id: 4, name: "Eclipse Essential Tee", description: "A crisp bone-white tee finished with a polished silver eclipse print.", category: "Boys", label: "Boys / Essential", colours: ["White", "Ivory"], image: boysEclipse, bestseller: true },
+  { ...standard, id: 5, name: "Iridescent Vortex Tee", description: "Forest-green heavyweight cotton with a vivid metallic vortex graphic.", category: "Boys", label: "Boys / 3D Graphic", colours: ["Green", "Black"], image: boysVortex, bestseller: false },
+  { ...girlsSizing, id: 6, name: "Silver Heart Baby Tee", description: "A fitted ivory baby tee featuring a delicate polished-heart 3D detail.", category: "Girls", label: "Girls / Fitted", colours: ["Ivory", "White"], image: girlsSilverHeart, bestseller: true },
+  { ...girlsSizing, id: 7, name: "Lilac Bubble Tee", description: "An easy lavender oversized tee with playful dimensional bubble art.", category: "Girls", label: "Girls / Oversized", colours: ["Lilac", "White"], image: girlsLilacBubbles, bestseller: true },
+  { ...girlsSizing, id: 8, name: "Burgundy Orb Boxy Tee", description: "A washed burgundy boxy tee with a rich chrome-orb 3D graphic.", category: "Girls", label: "Girls / Boxy", colours: ["Burgundy", "Black"], image: girlsBurgundyOrb, bestseller: false },
+  { ...girlsSizing, id: 9, name: "Liquid Silver Crop Tee", description: "A sharp black crop tee featuring a liquid silver wave print.", category: "Girls", label: "Girls / Cropped", colours: ["Black", "Charcoal"], image: girlsSilverWave, bestseller: true },
+  { ...girlsSizing, id: 10, name: "Pink Butterfly Tee", description: "Soft blush cotton with an iridescent 3D butterfly-inspired artwork.", category: "Girls", label: "Girls / New Drop", colours: ["Pink", "White"], image: girlsPinkButterfly, bestseller: false },
 ];
 
-export const FILTERS = ["All", "Oversized", "Regular Fit", "Graphic", "Basic", "New Arrivals"] as const;
+export const FILTERS = ["All", "Boys", "Girls"] as const;
